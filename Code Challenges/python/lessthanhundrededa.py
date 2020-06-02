@@ -4,9 +4,9 @@
 # We must / Requirements: function name: less_than_100
 #
 # Solution (Product)
-# if else, one check, is sum < or > 100
+# 1. if else, one check, is sum < or > 100
 # or
-# use one boolean expression: result true or false
+# 2. use one boolean expression: result true or false
 
 
 # # Normal function version:
