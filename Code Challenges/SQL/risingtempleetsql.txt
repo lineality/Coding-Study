@@ -1,0 +1,17 @@
+# (User) Problem
+# We know / We have: a weather table
+# We don't know / We Need: "all dates' Ids with higher temp compared to previous date"
+# We must / Requirements: table called Id, just include id numbers
+#
+# Solution (Product)
+# make an alias against which to compare
+
+# make a new alias table with offset previous values
+SELECT ID, Id-1 AS previous
+FROM Weather
+WHERE 
+
+
+
+
+

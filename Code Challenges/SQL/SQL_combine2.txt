@@ -1,5 +1,6 @@
 # (user)Problem
-# we have 2 tables, but we need:
+# we have: 2 tables, but 
+# we need:
 # a joined/mix of FirstName, LastName, City, State
 # even if data from the later table is abscent
 #
