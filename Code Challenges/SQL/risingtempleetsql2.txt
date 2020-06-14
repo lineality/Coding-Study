@@ -1,0 +1,16 @@
+# (User) Problem
+# We know / We have: a weather table
+# We don't know / We Need: "all dates' Ids with higher temp compared to previous date"
+# We must / Requirements: table called Id, just include id numbers
+#
+# Solution (Product)
+# make a new column against which to compare
+
+
+SELECT Id 
+FROM (SELECT *,
+    LAG(Temperature) OVER (ORDER BY Id) AS previous_temp
+FROM
+	Weather) AS proxytable_allias
+WHERE
+    Temperature > previous_temp
