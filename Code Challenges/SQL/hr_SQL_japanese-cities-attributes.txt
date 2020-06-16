@@ -1,8 +1,12 @@
-# (User) Problem
-# We know / We have: a table of cities
-# We don't know / We Need: just japanese cities
-# We must / Requirements: return all attributes
-#
-# Solution (Product)
-# select all (*)
-# where COUNTRYCODE = JPN
+--# (User) Problem
+--# We know / We have: a table of cities
+--# We don't know / We Need: just japanese cities
+--# We must / Requirements: return all attributes
+--#
+--# Solution (Product)
+-- select all (*)
+--# where COUNTRYCODE = JPN
+
+SELECT *
+FROM CITY as c
+WHERE c.COUNTRYCODE = 'JPN'
