@@ -12,17 +12,19 @@
 # note: conditionals vs. joins
 # note: aliasing
 
-SELECT Name AS Employee
-from Employee
-WHERE ManagerId = 3;
+# SELECT Name AS Employee
+# from Employee
+# WHERE ManagerId = 3;
+#
+#
+# SELECT Name AS Employee
+# from (
+# SELECT *
+# from Employee
+# )
 
-
-SELECT Name AS Employee
-from (
-SELECT *
-from Employee
-)
-
+SELECT e.Name AS Employee
+FROM (SELECT name FROM Employee) as e
 
 # SELECT Name AS Employee
 # from Employee

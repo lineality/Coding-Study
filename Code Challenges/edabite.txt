@@ -1,0 +1,5 @@
+message_binary = hex_to_binary(pad_character_hex)
+# inspection
+print("message_binary", message_binary, type(message_binary))
+
+['3', 'e', '14', '1b']

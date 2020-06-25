@@ -1,0 +1,35 @@
+
+-- Write your MySQL query statement below
+
+-- (User) Problem
+-- We know/ We have: just one table with all employees, managers, salaries
+-- We need / We don't have: which employees earn more than their managers
+-- We must / requirements:
+-- return only the name of those employees who earn more than their manager
+--
+-- Solution (Product)
+-- use nested 'from'
+-- note: conditionals vs. joins
+-- note: aliasing
+
+-- Using Alias Comparison
+SELECT employee_table.Name AS Employee
+FROM Employee as manager_table, -- Alias
+     Employee as employee_table -- Alias
+WHERE employee_table.ManagerId = manager_table.Id
+      AND manager_table.Salary < employee_table.Salary
+;
+
+-- Using Join
+select table1.Name AS Employee
+from Employee as table1
+inner join Employee as table2 on table1.ManagerId = table2.Id
+where table2.Salary < table1.Salary
+;
+
+--
+select table1.Name AS Employee
+from Employee as table1,
+     Employee as table2
+where table2.Salary < table1.Salary and table1.ManagerId = table2.Id
+;
