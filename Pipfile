@@ -8,9 +8,6 @@ black = "*"
 pylint = "*"
 pytest = "*"
 flake8 = "*"
-numpy = "*"
-matplotlib = "*"
-pyqt5 = "*"
 
 [packages]
 
