@@ -16,11 +16,13 @@ def recursive_factorial(n):
     # base case
     if n == 1:
         return print(n, end="")
-    else:
+
+    else:  # until you reach base case
         recursive_factorial(n - 1)
         return print(n, end="")
 
 
+# what form is this? (crazy hacker rank...)
 if __name__ == "__main__":
     n = int(input())
     recursive_factorial(n)
