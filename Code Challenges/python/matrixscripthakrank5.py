@@ -1,5 +1,4 @@
-# works for all but case 6...
-
+# works for 6...but not others
 
 import re
 
@@ -56,35 +55,34 @@ for column in range(1, columns_shape + 1):
         new_string += input_string[column + (columns_shape * row) - 1]
 
 # 9. Final Formatting: character sets
-# works
-
-# https://www.w3schools.com/python/python_regex.asp
-# regex for characters before text
-import re
-
-# new_string = "# @"
-new_string = "*&%^  &*% The rain  $ 5 in 45 7Spain %*#(#*&%(#*&%#"
+# breaking up code into those before and after the text characters
 
 # before first alpha (works)
-print(new_string, "(before any changes)")
-
+# Take items only before first alphbetic character
 pre = re.findall("^(.*?)[A-Za-z]", new_string)
+# make format a single string
 pre = "".join(pre)
-print(pre)
+
 
 # middle (works)
+# replace symbols with spaces
+# https://stackoverflow.com/questions/11475885/python-replace-regex#11475905
+mod_str = re.sub(r"\W", " ", new_string)
+# replace multiple spaces with one space
+# https://pythonexamples.org/python-replace-multiple-spaces-with-single-space-in-text-file/
+mod_str = re.sub("\s+", " ", mod_str)
+# remove all but characters in middle segment
+mid = re.findall("[A-Za-z\s]", mod_str)
+# make format a single string
+mid = "".join(map(str, mid))
+# remove final character from end
+mid = mid[:-1]
 
-mid = re.findall("\w\S*(?:\s\S+)?", new_string)
-print(mid)
-mid = " ".join(map(str, mid))
-print(mid)
 
 # after last alpha (works)
 post = re.findall("[^A-Za-z]+$", new_string)
+# make format a single string
 post = "".join(post)
-print(post)
+
 
 print(pre + mid + post)
-
-# 15 return results
-print(new_string)
