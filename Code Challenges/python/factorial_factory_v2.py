@@ -46,24 +46,42 @@
 # | return |
 #
 
+# class Solution:
+#     def solve(self, n):
+#         # base case
+#         if n == 1:
+
+#             # # inspection
+#             # print("Base Case! n = ", n)
+
+#             return n
+
+#         else:  # each time, multiply the number times solve(n - 1)
+
+#             # # inspection
+#             # print("n = ", n)
+
+#             return n * self.solve(n - 1)
+
+# tom = Solution()
+# tom.solve(4)
+
 
 class Solution:
     def solve(self, n):
-        # base case
-        if n == 1:
 
+        # set to 1 to avoid *0 error
+        cumulative = 1
+
+        # starts at 2, to avoid * zero error, and wasted 1*1 step)
+        for i in range(2, n + 1):
             # # inspection
-            # print("Base Case! n = ", n)
+            # print(i)
+            # print(cumulative)
+            cumulative = cumulative * i
 
-            return n
-
-        else:  # each time, multiply the number times solve(n - 1)
-
-            # # inspection
-            # print("n = ", n)
-
-            return n * self.solve(n - 1)
+        return cumulative
 
 
 tom = Solution()
-print(tom.solve(4))
+tom.solve(4)
