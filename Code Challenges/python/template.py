@@ -19,5 +19,12 @@ class Solution:
 
 
 
+# Sample Print Solution & How Long to Run
+
+import time
+start = time.time()
+
 Tom = Solution()
-Tom.solve("input")
+print("\nOutput =", Tom.solve("input"))
+
+print("Run Time = ", time.time() - start)

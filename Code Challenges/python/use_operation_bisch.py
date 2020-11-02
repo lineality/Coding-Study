@@ -18,7 +18,7 @@ class Solution:
 
 
 Tom = Solution()
-Tom.solve([3, 1, 6], "-", 4)
+print(Tom.solve([3, 1, 6], "-", 4))
 
 # or
 
