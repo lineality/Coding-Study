@@ -1,6 +1,7 @@
 # https://binarysearch.com/
+# linkedlist to int
 #
-# GGA 2020.11.04
+# GGA 2020.11.05
 #
 # User Problem
 # You have:
@@ -12,18 +13,51 @@
 # Edge cases:
 #
 # Input/Output Example:
-#
+# Linked List to Integer
+# Given a single linked list node, representing a binary number with most significant digits first, return it as an integer.
+
+# Example 1
+# Input
+
+# node = 1 → 0 → 0
+# Output
+
+# 4
+
 # Reflect On, Improvements, Comparisons with other Solutions:
 #
 
 
-class Solution:
-    def solve(self, nums):
-        pass
+# class LLNode:
+#     def __init__(self, val, next=None):
+#         self.val = val
+#         self.next = next
 
+
+# node = LLNode
+
+
+class Solution:
+    def solve(self, first_node):
+
+        # store the LL as a string
+        # toconvert that as base 2
+        LL_as_string = ""
+
+        node_pointer = first_node
+
+        while node_pointer:
+            # store the value
+            LL_as_string += str(node_pointer.val)
+            # advance
+            node_pointer = node_pointer.next
+
+        # convert str to binary to int
+        # base 2
+        return int(LL_as_string, 2)
 
 class Solution_2:
-    def solve(self, nums):
+    def solve(self, node):
         pass
 
 
