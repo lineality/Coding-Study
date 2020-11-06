@@ -3,8 +3,8 @@
 # GGA 2020.11.04
 #
 # User Problem
-# You have:
-# You Need:
+# You have: list of numbers
+# You Need: how many of those have an odd number of digits
 # You Must:
 #
 # Solution (Feature/Product)
@@ -13,15 +13,34 @@
 #
 # Input/Output Example:
 #
+# Odd number of digits
+# Given a list of positive integers nums, return the number of integers that have odd number of digits.
+
+# Example 1
+# Input
+
+# nums = [1, 800, 2, 10, 3]
+# Output
+
+# 4
+
 # Reflect On, Improvements, Comparisons with other Solutions:
 #
-# I learned:
 
 
 class Solution:
     def solve(self, nums):
-        pass
+        
+        # make a counter
+        counter = 0
 
+        # iterate through list
+        for i in nums:
+            #check if odd
+            if len(str(i)) % 2:
+                counter += 1
+
+        return counter
 
 class Solution_2:
     def solve(self, nums):
@@ -30,7 +49,7 @@ class Solution_2:
 
 # Sample Print Solution
 run_test = Solution()
-print("\nOutput   =", run_test.solve("input"))
+print("\nOutput   =", run_test.solve([1, 800, 2, 10, 3]))
 
 run_test_2 = Solution_2()
 print("\nOutput 2 =", run_test_2.solve("input"))

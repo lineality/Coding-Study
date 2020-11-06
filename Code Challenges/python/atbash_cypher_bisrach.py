@@ -1,7 +1,6 @@
 # https://binarysearch.com/
-# detect voter fraud
 #
-# GGA 2020.11.05
+# GGA 2020.11.04
 #
 # User Problem
 # You have:
@@ -9,43 +8,52 @@
 # You Must:
 #
 # Solution (Feature/Product)
-# 1. extract vote id numbers
-# 2. use set(do dupes) size comparison to see if there were dupes
-#
+# make alphabet-flip dictionary
 #
 # Edge cases:
 #
 # Input/Output Example:
-#Detect Voter Fraud
-# Given a two dimensional list of integers votes, where each list has two elements [candidate_id, voter_id], report whether any voter has voted more than once.
+# Atbash cipher
+# You are given a lowercase alphabet string text. Return a new string where every character in text is mapped to its reverse in the alphabet, so that a becomes z, b becomes y, c becomes x, and so on.
 
 # Example 1
 # Input
 
-# votes = [
-#     [3, 1],
-#     [3, 0],
-#     [3, 4],
-#     [3, 3],
-#     [3, 2]
-# ]
+# text = "abcdef"
 # Output
 
-# False
+# "zyxwvu"
 
 # Reflect On, Improvements, Comparisons with other Solutions:
-#
+#            # flip_dict[value] = abc[-(index + 1)]
+#            flip_dict[value] = abc[~index]
+
+# I learned:
+#   zip, which is awsome
+#   ~
+#   simple list to string: "".join( [list_name] )
 
 
 class Solution:
-    # find dupes in voter ID (from a 2d array (vanilla python))
-    def solve(self, array_voting):
+    def solve(self, text):
+        # abc's
+        abc = "abcdefghijklmnopqrstuvwxyz"
 
-        # strip out 
-        vote_id_only = [i[1] for i in array_voting]
+        # as list
+        abc = list(abc)
 
-        # see if set-length (no dupes) is different
-        return len(vote_id_only) != len(set(vote_id_only))
+        # make dictionary
+        flip_dict = {}
+
+        # iterate, enumerate
+        for index, value in enumerate(abc):
+            # make a flipped dictionary a -> z
+            # flip_dict[value] = abc[-(index + 1)]
+            flip_dict[value] = abc[~index]
+
+        # return each item run through the flipped dictionary
+        return "".join([flip_dict[i] for i in text])
+
 
 class Solution_2:
     def solve(self, nums):
@@ -54,20 +62,14 @@ class Solution_2:
 
 # Sample Print Solution
 run_test = Solution()
-print("\nOutput   =", run_test.solve([
-    [3, 1],
-    [3, 0],
-    [3, 4],
-    [3, 3],
-    [3, 2]
-]))
+print("\nOutput   =", run_test.solve("abcdef"))
 
-run_test_2 = Solution_2()
-print("\nOutput 2 =", run_test_2.solve("input"))
+# run_test_2 = Solution_2()
+# print("\nOutput 2 =", run_test_2.solve("input"))
 
 
-# Compare 2 Averaged runtimes
-import time
+# # Compare 2 Averaged runtimes
+# import time
 
 
 # def compare_avg_times(iterations=1000000):

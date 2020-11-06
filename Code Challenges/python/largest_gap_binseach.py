@@ -1,51 +1,56 @@
 # https://binarysearch.com/
-# detect voter fraud
 #
-# GGA 2020.11.05
+# GGA 2020.11.04
 #
 # User Problem
-# You have:
-# You Need:
+# You have: list of integers
+# You Need: for sorted: which consecutive difference is greatest: vvalue
 # You Must:
 #
 # Solution (Feature/Product)
-# 1. extract vote id numbers
-# 2. use set(do dupes) size comparison to see if there were dupes
-#
 #
 # Edge cases:
 #
 # Input/Output Example:
-#Detect Voter Fraud
-# Given a two dimensional list of integers votes, where each list has two elements [candidate_id, voter_id], report whether any voter has voted more than once.
+#
+# Largest Gap
+# Given a list of integers nums, return the largest difference of two consecutive integers in the sorted version of nums.
 
+# Constraints
+
+# n ≤ 100,000 where n is the length of nums
 # Example 1
 # Input
 
-# votes = [
-#     [3, 1],
-#     [3, 0],
-#     [3, 4],
-#     [3, 3],
-#     [3, 2]
-# ]
+# nums = [4, 1, 2, 8, 9, 10]
 # Output
 
-# False
-
+# 4
 # Reflect On, Improvements, Comparisons with other Solutions:
-#
+# using zip
+# nums.sort()
+# return max(b-a for a, b in zip(nums, nums[1:]))
 
 
 class Solution:
-    # find dupes in voter ID (from a 2d array (vanilla python))
-    def solve(self, array_voting):
+    def solve(self, nums):
+        # sort in place
+        nums.sort()
 
-        # strip out 
-        vote_id_only = [i[1] for i in array_voting]
+        # max diff
+        max_diff = 0
 
-        # see if set-length (no dupes) is different
-        return len(vote_id_only) != len(set(vote_id_only))
+        # iterate, enumerate
+        for index, value in enumerate(nums):
+
+            # exclude last number
+            if index != (len(nums) - 1):
+
+                if max_diff < (nums[index + 1] - value):
+                    max_diff = nums[index + 1] - value
+
+        return max_diff
+
 
 class Solution_2:
     def solve(self, nums):
@@ -54,20 +59,14 @@ class Solution_2:
 
 # Sample Print Solution
 run_test = Solution()
-print("\nOutput   =", run_test.solve([
-    [3, 1],
-    [3, 0],
-    [3, 4],
-    [3, 3],
-    [3, 2]
-]))
+print("\nOutput   =", run_test.solve([4, 1, 2, 8, 9, 10]))
 
-run_test_2 = Solution_2()
-print("\nOutput 2 =", run_test_2.solve("input"))
+# run_test_2 = Solution_2()
+# print("\nOutput 2 =", run_test_2.solve([4, 1, 2, 8, 9, 10]))
 
 
-# Compare 2 Averaged runtimes
-import time
+# # Compare 2 Averaged runtimes
+# import time
 
 
 # def compare_avg_times(iterations=1000000):
