@@ -1,21 +1,24 @@
 # https://binarysearch.com/
-#
-# GGA 2020.11.04
-#
-# User Problem
-# You have:
-# You Need:
-# You Must:
-#
-# Solution (Feature/Product)
-#
-# Edge cases:
-#
-# Input/Output Example:
-#
-# Reflect On, Improvements, Comparisons with other Solutions:
-#
-# I learned:
+# GGA 2020.12.04
+"""
+User Problem
+You Have:
+You Need:
+You Must:
+
+Input/Output Example:
+
+Solution (Feature/Product)
+
+   (Edge cases)
+
+
+
+
+Reflect On, Improvements, Comparisons with other Solutions:
+
+I learned:
+"""
 
 
 class Solution:
@@ -29,11 +32,14 @@ class Solution_2:
 
 
 # Sample Print Solution
+
+test_input = "test"
+
 run_test = Solution()
-print("\nOutput   =", run_test.solve("input"))
+print("\nOutput   =", run_test.solve(test_input))
 
 run_test_2 = Solution_2()
-print("\nOutput 2 =", run_test_2.solve("input"))
+print("\nOutput 2 =", run_test_2.solve(test_input))
 
 
 # Compare 2 Averaged runtimes
@@ -58,7 +64,7 @@ def compare_avg_times(iterations=1000000):
         start = time.time()
 
         # run program
-        run_test.solve("input")
+        run_test.solve(test_input)
 
         # stop clock, store that runtime
         all_runtimes += time.time() - start
@@ -74,7 +80,7 @@ def compare_avg_times(iterations=1000000):
         start = time.time()
 
         # run program
-        run_test_2.solve("input")
+        run_test_2.solve(test_input)
 
         # stop clock, store that runtime
         all_runtimes += time.time() - start
