@@ -9,7 +9,6 @@
 def football_points(wins, draws, losses):
     return wins * 3 + draws
 
-
-# alt: Lambda Version
-#
-# football_points = lambda x, y, z: x * 3 + y
+    # alt: Lambda Version
+    #
+    # football_points = lambda x, y, z: x * 3 + y
